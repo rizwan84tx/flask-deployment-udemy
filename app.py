@@ -12,10 +12,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #flask_SQLAlchemy tracks al
 app.secret_key = 'rizwan' #key to excrypt the data
 api = Api(app)
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 jwt =  JWT(app, authenticate, identity) #/auth
 
 api.add_resource(ItemList, '/items')
